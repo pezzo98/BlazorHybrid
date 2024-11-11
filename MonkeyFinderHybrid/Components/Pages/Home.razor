@@ -7,30 +7,18 @@
 }
 else
 {
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Location</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var monkey in monkeys)
-                {
-                    <tr>
-                        <td>
-                            <img src="@monkey.Image" alt="@monkey.Name" style="width: 100px; height: 100px;" />
-                        </td>
-                        <td>
-                            <strong>@monkey.Name</strong>
-                            <p>@monkey.Location</p>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+    <ul class="card-list">
+        @foreach (var monkey in monkeys)
+        {
+            <li class="card-item">
+                <img class="card-image" src="@monkey.Image"/>
+                <div class="card-content">
+                    <h2>@monkey.Name</h2>
+                    <p>@monkey.Location</p>
+                </div>
+            </li>
+        }
+    </ul>
 }
 
 @code {
