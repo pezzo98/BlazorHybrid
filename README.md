@@ -9,7 +9,7 @@ MonkeyFinderHybrid è una semplice applicazione che aiuta gli utenti a cercare d
 ### Funzionalità della App
 
 - **Visualizzare una lista di scimmie** con informazioni dettagliate
-- **Navigazione multipiattaforma** (iOS, Android, Windows, macOS) con .NET MAUI
+- **Navigazione multipiattaforma** (iOS, Android) con .NET MAUI
 - **Semplice interfaccia utente** creata con Blazor, integrata tramite .NET MAUI Blazor Hybrid
 
 ### Obiettivi del Progetto
@@ -17,4 +17,3 @@ MonkeyFinderHybrid è una semplice applicazione che aiuta gli utenti a cercare d
 - Capire come configurare e utilizzare **.NET MAUI Blazor Hybrid**
 - Familiarizzare con le **best practices** per applicazioni ibride multipiattaforma
 - Imparare a gestire il **ciclo di vita** e le **performance** dell'app su diverse piattaforme
-- 
