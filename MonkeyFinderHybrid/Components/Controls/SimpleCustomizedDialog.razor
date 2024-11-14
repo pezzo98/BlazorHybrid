@@ -1,5 +1,25 @@
-﻿<h3>SimpleCustomizedDialog</h3>
+﻿@implements IDialogContentComponent<Monkey>
 
-@code {
+@* Header *@
+<FluentDialogHeader ShowDismiss="true">
+    <FluentStack VerticalAlignment="VerticalAlignment.Center">
+        <FluentLabel Typo="Typography.PaneHeader">
+            @Dialog.Instance.Parameters.Title
+        </FluentLabel>
+    </FluentStack>
+</FluentDialogHeader>
 
-}
+@* Body *@
+<FluentDialogBody>
+    <FluentTextField @bind-Value="@Content.Name">Name:</FluentTextField>
+    <FluentTextField @bind-Value="@Content.Details">Description:</FluentTextField>
+    <FluentTextField @bind-Value="@Content.Location">Location:</FluentTextField>
+    <FluentTextField @bind-Value="@Content.Image">Image:</FluentTextField>
+    <FluentNumberField @bind-Value="@Content.Population">Population:</FluentNumberField>
+</FluentDialogBody>
+
+@* Footer *@
+<FluentDialogFooter>
+    <FluentButton Appearance="Appearance.Accent" OnClick="@SaveAsync">Save</FluentButton>
+    <FluentButton Appearance="Appearance.Neutral" OnClick="@CancelAsync">Cancel</FluentButton>
+</FluentDialogFooter>

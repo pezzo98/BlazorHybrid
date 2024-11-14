@@ -2,6 +2,7 @@
 
 <div>
     <button class="button-yellow" @onclick="AddMonkey">Add New Monkey</button>
+    <p>Name: @DialogData.Name - Population: @DialogData.Population</p>
     @if (monkeys is null)
     {
         <p><em>Loading...</em></p>
