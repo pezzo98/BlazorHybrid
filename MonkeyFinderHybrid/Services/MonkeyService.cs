@@ -2,39 +2,46 @@ using System.Net.Http.Json;
 
 namespace MonkeyFinderHybrid.Services;
 
-public class MonkeyService
+public class MonkeyService(HttpClient httpClient)
 {
-    private readonly HttpClient httpClient;
-    private List<Monkey> monkeysList = [];
-
-    public MonkeyService()
-    {
-        httpClient = new HttpClient();
-    }
+    List<Monkey> monkeyList = [];
 
     public async Task<List<Monkey>> GetMonkeys()
     {
-        if (monkeysList.Count > 0)
+        if (monkeyList.Count > 0)
         {
-            return monkeysList;
+            return monkeyList;
         }
 
         var response = await httpClient.GetAsync("https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/MonkeysApp/monkeydata.json");
         if (response.IsSuccessStatusCode)
         {
-            var monkeyResult = await response.Content.ReadFromJsonAsync(MonkeyContext.Default.ListMonkey);
-            if (monkeyResult is not null)
+            var resultMonkeys = await response.Content.ReadFromJsonAsync(MonkeyContext.Default.ListMonkey);
+
+            if (resultMonkeys is not null)
             {
-                monkeysList = monkeyResult;
+                monkeyList = resultMonkeys;
             }
         }
 
-        return monkeysList;
+        return monkeyList;
     }
 
     public List<Monkey> AddMonkey(Monkey monkey)
     {
-        monkeysList.Add(monkey);
-        return monkeysList;
+        monkeyList.Add(monkey);
+        return monkeyList;
+    }
+
+    public Monkey FindMonkeyByName(string name)
+    {
+        var monkey = monkeyList.FirstOrDefault(m => m.Name == name);
+
+        if (monkey is null)
+        {
+            throw new Exception("Monkey not found");
+        }
+
+        return monkey;
     }
 }

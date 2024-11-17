@@ -4,7 +4,7 @@ using MonkeyFinderHybrid.Components.Controls;
 
 namespace MonkeyFinderHybrid.Components.Pages;
 
-public partial class Home(MonkeyService monkeyService, IDialogService dialogService) : ComponentBase
+public partial class Home(MonkeyService monkeyService, IDialogService dialogService, NavigationManager NavManager) : ComponentBase
 {
     private List<Monkey> monkeys = [];
     private Monkey DialogData { get; set; } = new();
@@ -31,5 +31,10 @@ public partial class Home(MonkeyService monkeyService, IDialogService dialogServ
             monkeyService.AddMonkey(DialogData);
             monkeys = await monkeyService.GetMonkeys();
         }
+    }
+
+    private void GoToDetails(Monkey monkey)
+    {
+        NavManager.NavigateTo($"details/{monkey.Name}");
     }
 }

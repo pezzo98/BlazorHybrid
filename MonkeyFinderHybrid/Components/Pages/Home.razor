@@ -2,18 +2,18 @@
 
 <div>
     <button class="button-yellow" @onclick="AddMonkey">Add New Monkey</button>
-    <p>Name: @DialogData.Name - Population: @DialogData.Population</p>
+
     @if (monkeys is null)
     {
-        <p><em>Loading...</em></p>
+        <p><em>Loading monkeys...</em></p>
     }
     else
     {
         <ul class="card-list">
             @foreach (var monkey in monkeys)
             {
-                <li class="card-item">
-                    <img class="card-image" src="@monkey.Image"/>
+                <li @onclick="()=>GoToDetails(monkey)" class="card-item">
+                    <img class="card-image" src="@monkey.Image">
                     <div class="card-content">
                         <h2>@monkey.Name</h2>
                         <p>@monkey.Location</p>

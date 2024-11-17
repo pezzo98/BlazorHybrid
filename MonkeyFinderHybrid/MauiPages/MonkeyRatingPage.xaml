@@ -4,10 +4,16 @@
              xmlns:alohakit="clr-namespace:AlohaKit.Controls;assembly=AlohaKit"
              x:Class="MonkeyFinderHybrid.MauiPages.MonkeyRatingPage"
              Title="Rate a monkey">
-    <VerticalStackLayout>
-        <Label
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"/>
+    <VerticalStackLayout
+        VerticalOptions="Center"
+        Spacing="15" Padding="10">
+
+        <Label Text="How would you rate this monkey?"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               FontSize="20"/>
+
+        <alohakit:Rating x:Name="rating"/>
     </VerticalStackLayout>
 </ContentPage>
