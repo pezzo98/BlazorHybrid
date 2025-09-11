@@ -2,7 +2,6 @@
 
     <PropertyGroup>
         <TargetFrameworks>net9.0-android;net9.0-ios</TargetFrameworks>
-
         <OutputType>Exe</OutputType>
         <RootNamespace>MonkeyFinderHybrid</RootNamespace>
         <UseMaui>true</UseMaui>
@@ -10,19 +9,15 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <EnableDefaultCssItems>false</EnableDefaultCssItems>
         <Nullable>enable</Nullable>
-
         <!-- Display name -->
         <ApplicationTitle>MonkeyFinderHybrid</ApplicationTitle>
-
         <!-- App Identifier -->
         <ApplicationId>com.companyname.monkeyfinderhybrid</ApplicationId>
-
         <!-- Versions -->
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
         <ApplicationVersion>1</ApplicationVersion>
-
-        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
-        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">24.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">16.2</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">30.0</SupportedOSPlatformVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -45,10 +40,10 @@
 
     <ItemGroup>
         <PackageReference Include="AlohaKit" Version="1.0.100" />
-        <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.9.3" />
-        <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.10" />
-        <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.10" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="9.0.10" />
-        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+        <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.12.1" />
+        <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.110" />
+        <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.110" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="9.0.110" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.9" />
     </ItemGroup>
 </Project>
